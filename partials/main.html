@@ -1,0 +1,15 @@
+﻿<div class="container">
+    <section ng-repeat="article in articles[currentIndex]">
+        <a ui-sref="article({id:article.id})">
+            <div class="panel panel-default">
+                <div class="panel-heading article-title">{{article.webTitle}}<span class="section-name">{{article.webPublicationDate}}</span></div>
+            </div>
+        </a>
+    </section>
+</div>
+
+<nav id="pagination-wrapper" aria-label="Page navigation">
+    <ul class="pagination">
+        <li ng-repeat="index in sectionLength" ng-class="currentIndex === index - 1 ? 'active' : 'unactive'"><a ui-sref="main({id:index})">{{index}}</a></li>
+    </ul>
+</nav>
