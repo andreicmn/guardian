@@ -17,14 +17,14 @@
                    $scope.sectionLength = [];
                    var groupList = [];
                    var articleList = [];
-
+                   // main section pagination
                    for (var i = 1; i <= sections.length; i++) {
 
-                       groupList.push(sections[i - 1]);
+                       groupList.push(sections[i - 1]); // max 4 elements list 
 
-                       if ((i % 4 === 0 && i !== 0) || i === sections.length) {
-                           $scope.sectionLength.push(Math.ceil(i / 4));
-                           articleList.push(groupList);
+                       if ((i % 4 === 0 && i !== 0) || i === sections.length) { // every 4 element
+                           $scope.sectionLength.push(Math.ceil(i / 4)); // pagination selector
+                           articleList.push(groupList); // pushing elements to mail list
                            groupList = [];
                        }
                    }
@@ -42,12 +42,12 @@
     .state('article', {
         url: '/article/:id',
         templateUrl: '../partials/article.html',
-        controller: function ($scope, $stateParams, category) {
+        controller: function ($scope, $stateParams, article) {
 
-            $scope.article = category;
+            $scope.article = article; // selected article
         },
         resolve: {
-            category: ['$http', '$stateParams', 'guardianServiceFactory', function ($http, $stateParams, guardianServiceFactory) {
+            article: ['$http', '$stateParams', 'guardianServiceFactory', function ($http, $stateParams, guardianServiceFactory) {
                 return guardianServiceFactory.getArticle($stateParams.id);
             }]
         }

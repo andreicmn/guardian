@@ -7,7 +7,7 @@
                 return promise.then(function (response) {
                     var list = response.data.response.results;
 
-                    return list;
+                    return list; // return full article list
                 });
             },
             getArticle: function (articleId) {
@@ -17,7 +17,7 @@
                         return item.id === articleId;
                     });
 
-                    return itemList[0];
+                    return itemList[0]; // return selected article
                 });
             }
         }
