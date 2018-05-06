@@ -13,7 +13,7 @@
                url: '/:id',
                templateUrl: '../partials/main.html',
                controller:["$scope","$http","sections","$stateParams",function($scope, $http, sections, $stateParams) {
-                   console.log(sections);
+
                    $scope.sectionLength = [];
                    var groupList = [];
                    var articleList = [];
