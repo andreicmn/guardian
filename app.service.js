@@ -23,7 +23,10 @@
 
 
                     // test fix
+<<<<<<< 7b0bb8b8414f6b7c9a1d9d5cc559f787a56cde64
                     
+=======
+>>>>>>> fix 2
                     return itemList[0]; // return selected article
                 });
             }
